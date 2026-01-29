@@ -1,60 +1,67 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="/var/lib/odoo/addons/18.0/servicio_guarderia.list">
-      <field name="name">/var/lib/odoo/addons/18.0/servicio_guarderia list</field>
-      <field name="model">/var/lib/odoo/addons/18.0/servicio_guarderia./var/lib/odoo/addons/18.0/servicio_guarderia</field>
+
+    <!-- Vista de Lista (Tree) -->
+    <record model="ir.ui.view" id="view_servicio_guarderia_tree">
+      <field name="name">servicio.guarderia.tree</field>
+      <field name="model">servicio.guarderia</field>
       <field name="arch" type="xml">
-        <list>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+        <list string="Servicios de Guardería">
+          <field name="name" string="Monitor"/>
+          <field name="start" string="Inicio"/>
+          <field name="stop" string="Fin"/>
+          <field name="rango_edad"/>
+          <field name="location" string="Ubicación"/>
         </list>
       </field>
     </record>
--->
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="/var/lib/odoo/addons/18.0/servicio_guarderia.action_window">
-      <field name="name">/var/lib/odoo/addons/18.0/servicio_guarderia window</field>
-      <field name="res_model">/var/lib/odoo/addons/18.0/servicio_guarderia./var/lib/odoo/addons/18.0/servicio_guarderia</field>
-      <field name="view_mode">list,form</field>
-    </record>
--->
-
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="/var/lib/odoo/addons/18.0/servicio_guarderia.action_server">
-      <field name="name">/var/lib/odoo/addons/18.0/servicio_guarderia server</field>
-      <field name="model_id" ref="model_/var/lib/odoo/addons/18.0/servicio_guarderia_/var/lib/odoo/addons/18.0/servicio_guarderia"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "list,form",
-          "res_model": model._name,
-        }
+    <!-- Vista de Formulario -->
+    <record model="ir.ui.view" id="view_servicio_guarderia_form">
+      <field name="name">servicio.guarderia.form</field>
+      <field name="model">servicio.guarderia</field>
+      <field name="arch" type="xml">
+        <form string="Servicio de Guardería">
+          <sheet>
+            <group>
+                <group string="Información del Monitor (Empleado)">
+                    <field name="name" string="Nombre del Monitor"/>
+                    <field name="work_email"/>
+                    <field name="mobile_phone"/>
+                </group>
+                <group string="Detalles del Servicio">
+                    <field name="rango_edad"/>
+                    <field name="descripcion"/>
+                </group>
+            </group>
+            <group string="Horario y Planificación (Evento)">
+                <group>
+                    <field name="start" string="Fecha Inicio"/>
+                    <field name="stop" string="Fecha Fin"/>
+                    <field name="duration" widget="float_time"/>
+                </group>
+                <group>
+                    <field name="location"/>
+                    <field name="allday"/>
+                </group>
+            </group>
+          </sheet>
+        </form>
       </field>
     </record>
--->
 
-    <!-- Top menu item -->
-<!--
-    <menuitem name="/var/lib/odoo/addons/18.0/servicio_guarderia" id="/var/lib/odoo/addons/18.0/servicio_guarderia.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="/var/lib/odoo/addons/18.0/servicio_guarderia.menu_1" parent="/var/lib/odoo/addons/18.0/servicio_guarderia.menu_root"/>
-    <menuitem name="Menu 2" id="/var/lib/odoo/addons/18.0/servicio_guarderia.menu_2" parent="/var/lib/odoo/addons/18.0/servicio_guarderia.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="/var/lib/odoo/addons/18.0/servicio_guarderia.menu_1_list" parent="/var/lib/odoo/addons/18.0/servicio_guarderia.menu_1"
-              action="/var/lib/odoo/addons/18.0/servicio_guarderia.action_window"/>
-    <menuitem name="Server to list" id="/var/lib/odoo/addons/18.0/servicio_guarderia" parent="/var/lib/odoo/addons/18.0/servicio_guarderia.menu_2"
-              action="/var/lib/odoo/addons/18.0/servicio_guarderia.action_server"/>
--->
+    <!-- Acción de Ventana -->
+    <record model="ir.actions.act_window" id="action_servicio_guarderia">
+      <field name="name">Servicios de Guardería</field>
+      <field name="res_model">servicio.guarderia</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Elementos de Menú -->
+    <menuitem name="Guardería" id="menu_root_guarderia" sequence="10"/>
+    
+    <menuitem name="Servicios" id="menu_servicio_guarderia" parent="menu_root_guarderia"
+              action="action_servicio_guarderia" sequence="1"/>
+
   </data>
 </odoo>

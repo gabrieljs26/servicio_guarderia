@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_/var/lib/odoo/addons/18.0/servicio_guarderia_/var/lib/odoo/addons/18.0/servicio_guarderia,/var/lib/odoo/addons/18.0/servicio_guarderia./var/lib/odoo/addons/18.0/servicio_guarderia,model_/var/lib/odoo/addons/18.0/servicio_guarderia_/var/lib/odoo/addons/18.0/servicio_guarderia,base.group_user,1,1,1,1
+access_servicio_guarderia_user,servicio.guarderia.user,model_servicio_guarderia,base.group_user,1,1,1,1
