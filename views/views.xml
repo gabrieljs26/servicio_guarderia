@@ -6,13 +6,13 @@
       <field name="name">servicio.guarderia.tree</field>
       <field name="model">servicio.guarderia</field>
       <field name="arch" type="xml">
-        <list string="Servicios de Guardería">
+        <tree string="Servicios de Guardería">
           <field name="name" string="Monitor"/>
           <field name="start" string="Inicio"/>
           <field name="stop" string="Fin"/>
           <field name="rango_edad"/>
           <field name="location" string="Ubicación"/>
-        </list>
+        </tree>
       </field>
     </record>
 
@@ -54,7 +54,7 @@
     <record model="ir.actions.act_window" id="action_servicio_guarderia">
       <field name="name">Servicios de Guardería</field>
       <field name="res_model">servicio.guarderia</field>
-      <field name="view_mode">list,form</field>
+      <field name="view_mode">tree,form</field>
     </record>
 
     <!-- Elementos de Menú -->
