@@ -2,17 +2,17 @@
   <data>
 
     <!-- Vista de Lista (Tree) -->
-    <record model="ir.ui.view" id="view_servicio_guarderia_tree">
-      <field name="name">servicio.guarderia.tree</field>
+    <record model="ir.ui.view" id="view_servicio_guarderia_list">
+      <field name="name">servicio.guarderia.list</field>
       <field name="model">servicio.guarderia</field>
       <field name="arch" type="xml">
-        <tree string="Servicios de Guardería">
+        <list string="Servicios de Guardería">
           <field name="name" string="Monitor"/>
           <field name="start" string="Inicio"/>
           <field name="stop" string="Fin"/>
           <field name="rango_edad"/>
           <field name="location" string="Ubicación"/>
-        </tree>
+        </list>
       </field>
     </record>
 
@@ -54,7 +54,7 @@
     <record model="ir.actions.act_window" id="action_servicio_guarderia">
       <field name="name">Servicios de Guardería</field>
       <field name="res_model">servicio.guarderia</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">list,form</field>
     </record>
 
     <!-- Elementos de Menú -->
